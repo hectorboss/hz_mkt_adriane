@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Player com Botão de Play (som ativado)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrapper">
+    <div class="player" id="player">
+      <video
+        id="video"
+        class="video"
+        preload="metadata"
+        playsinline
+        poster=""
+      >
+        <source src="assets/HZ_REELS_ADRIANE.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo HTML5.
+      </video>
+
+      <!-- Overlay com botão de play -->
+      <button class="overlay-play" id="playButton" aria-label="Reproduzir vídeo">
+        <!-- Ícone de play (SVG) -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 5v14l11-7-11-7z"></path>
+        </svg>
+      </button>
+
+      <!-- Controles simples -->
+      <div class="controls">
+        <button id="togglePlay" class="btn" aria-label="Reproduzir/Pausar">▶︎/⏸</button>
+        <button id="mute" class="btn" aria-label="Ativar/Desativar som">🔊</button>
+        <input id="seek" class="seek" type="range" min="0" value="0" step="0.1" />
+        <span id="time" class="time">00:00 / 00:00</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
