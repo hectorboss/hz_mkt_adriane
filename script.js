@@ -1,25 +1,26 @@
 const video = document.getElementById("hzVideo");
 const playButton = document.getElementById("playButton");
 
-// Clicar no botão começa o vídeo
+// Quando clicar no botão, inicia o vídeo
 playButton.addEventListener("click", () => {
   video.play();
+  playButton.classList.add("hidden");
 });
 
-// Quando o vídeo começa, esconde o botão
+// Quando o vídeo começa a rodar, esconde o botão
 video.addEventListener("play", () => {
   playButton.classList.add("hidden");
 });
 
-// Se o vídeo for pausado manualmente, mostra o botão de novo
+// Se o vídeo for pausado manualmente, mostra o botão novamente
 video.addEventListener("pause", () => {
-  // Se chegou ao fim, não mostra (opcional, ajuste se quiser)
+  // Só mostra se não estiver no fim
   if (video.currentTime < video.duration) {
     playButton.classList.remove("hidden");
   }
 });
 
-// Ao terminar o vídeo, mostra o botão de novo
+// Quando o vídeo termina, mostra o botão novamente
 video.addEventListener("ended", () => {
   playButton.classList.remove("hidden");
 });
