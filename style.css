@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  position: relative;
+  width: 600px;  /* mesma largura aproximada do layout original */
+  max-width: 100%;
+}
+
+.layout-image {
+  width: 100%;
+  display: block;
+}
+
+/* Moldura do vídeo onde ficava o quadrado vermelho */
+.video-frame {
+  position: absolute;
+  /* Valores aproximados para encaixar no quadrado vermelho.
+     Se quiser ajustar, altere top/right/width/height. */
+  top: 130px;
+  right: 10px;
+  width: 280px;
+  height: 460px;
+
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* Vídeo ocupa toda a área da moldura */
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botão de play central */
+.play-button {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+}
+
+.play-button:hover {
+  transform: scale(1.06);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.play-button.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
