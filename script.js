@@ -2,10 +2,15 @@ const video = document.getElementById("hzVideo");
 const playButton = document.getElementById("playButton");
 
 // Quando clicar no botão, inicia o vídeo
-playButton.addEventListener("click", () => {
-  video.play();
-  playButton.classList.add("hidden");
+playButton.addEventListener("click", async () => {
+  try {
+    await video.play();
+    playButton.classList.add("hidden");
+  } catch (err) {
+    console.error("Erro ao tentar reproduzir:", err);
+  }
 });
+
 
 // Quando o vídeo começa a rodar, esconde o botão
 video.addEventListener("play", () => {
