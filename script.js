@@ -1,31 +1,25 @@
+const openBtn = document.getElementById("openVideo");
+const closeBtn = document.getElementById("closeVideo");
+const modal = document.getElementById("videoModal");
 const video = document.getElementById("hzVideo");
-const playButton = document.getElementById("playButton");
 
-// Quando clicar no botão, inicia o vídeo
-playButton.addEventListener("click", async () => {
-  try {
-    await video.play();
-    playButton.classList.add("hidden");
-  } catch (err) {
-    console.error("Erro ao tentar reproduzir:", err);
+// Abrir modal e começar o vídeo
+openBtn.addEventListener("click", () => {
+  modal.classList.add("open");
+  video.currentTime = 0;
+  video.play();
+});
+
+// Fechar modal (botão X)
+closeBtn.addEventListener("click", () => {
+  video.pause();
+  modal.classList.remove("open");
+});
+
+// Fechar clicando fora do vídeo
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    video.pause();
+    modal.classList.remove("open");
   }
-});
-
-
-// Quando o vídeo começa a rodar, esconde o botão
-video.addEventListener("play", () => {
-  playButton.classList.add("hidden");
-});
-
-// Se o vídeo for pausado manualmente, mostra o botão novamente
-video.addEventListener("pause", () => {
-  // Só mostra se não estiver no fim
-  if (video.currentTime < video.duration) {
-    playButton.classList.remove("hidden");
-  }
-});
-
-// Quando o vídeo termina, mostra o botão novamente
-video.addEventListener("ended", () => {
-  playButton.classList.remove("hidden");
 });
