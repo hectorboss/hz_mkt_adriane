@@ -19,10 +19,7 @@ body {
   max-width: 100%;
 }
 
-.layout-image {
-  width: 100%;
-  display: block;
-}
+
 
 /* Moldura do vídeo onde ficava o quadrado vermelho */
 .video-frame {
