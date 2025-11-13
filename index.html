@@ -7,16 +7,26 @@
 </head>
 <body>
   <div class="page-wrapper">
-    <img src="layout.png" alt="HZ News - Adriane finalista Prêmio Caio" class="layout-image" />
+    <!-- ARTE DO EMAIL -->
+    <img src="layout.png"
+         alt="HZ News - Adriane finalista Prêmio Caio"
+         class="layout-image" />
+
+    <!-- ÁREA CLICÁVEL EM CIMA DO QUADRADO VERMELHO -->
     <div class="video-frame">
-      <video id="hzVideo" class="video" preload="auto">
-  <source src="https://github.com/hectorboss/hz_mkt_adriane/releases/download/v2/video.mp4" type="video/mp4">
-</video>
+      <button id="openVideo" class="play-overlay" aria-label="Assistir vídeo"></button>
+    </div>
+  </div>
 
-<button id="playButton" class="play-button" aria-label="Reproduzir vídeo">▶</button>
+  <!-- MODAL / OVERLAY DO VÍDEO -->
+  <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+      <button id="closeVideo" class="close-button" aria-label="Fechar vídeo">✕</button>
 
-        ▶
-      </button>
+      <video id="hzVideo" controls preload="auto">
+        <source src="https://github.com/hectorboss/hz_mkt_adriane/releases/download/v2/video.mp4" type="video/mp4" />
+        Seu navegador não suporta vídeo HTML5.
+      </video>
     </div>
   </div>
 
